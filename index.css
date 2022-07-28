@@ -1,0 +1,74 @@
+.wraper {
+    max-width: 595px;
+    margin: 30px auto;
+    border-radius: 10px;
+    border: 3px solid black;
+    /* height: 570px; */
+    background-color: white;
+}
+.addtask{
+    display: flex;
+    align-items: center;
+    padding-left: 19px;
+    padding-bottom: 15px;
+    height: 70px;
+    border-bottom: black solid 2px;
+}
+.addtask input{
+    height: 42px;
+    width: 492px;
+    text-indent: 18px;
+    border-color: blue;
+    width: 492px;
+    height: 42px;
+    background: #FFFFFF;
+    border: 2px solid #2501FF;
+    border-radius: 5px;
+}
+
+.addtask img{
+    height: 42px;
+    width: 42px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.setting img {
+    width: 16px;
+    height: 16px;
+}
+.delete img{
+    height: 16px;
+    width: 16px;
+}
+
+#pagination button {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    text-align: center;
+    font-weight: 700;
+  }
+#pagination{
+    border-top: black solid 2px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameapp{
+    font-family: 'Roboto';
+    width: 50%;
+    text-align: center;
+    height: 45px;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    align-items: center;
+    margin:auto;
+    padding-top: 22px;
+    padding-bottom: 44px;
+} /*Thảo 25/10 */
