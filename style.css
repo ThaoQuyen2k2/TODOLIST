@@ -1,0 +1,70 @@
+/* Hồng Phượng */
+
+/* Trần Thảo 25/10 */
+
+/* Trần Thảo 10/3 */
+button{
+    border: none;
+}
+.setting{
+    width: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.delete{
+    width: 16px;
+    cursor: pointer;
+}
+#tasklist{
+    height: 335px;
+    /* display:flex;
+    align-items: center;
+    justify-content: center; */
+}
+#taskcontainer{
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 7px 0;
+    width: 95%;
+    border-bottom: black solid 2px;
+}
+.task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+}
+#value{
+    margin-left: 20px;
+}
+.icons{
+    margin-right: 20px;
+}
+.done{
+    display: inline-flex;
+}
+.tick {
+    width: 20px;
+    height: 20px;
+    margin-right: 14.55px;
+    cursor: pointer;
+    visibility: visible;
+}
+.tick.taskFinished{
+    visibility: hidden;
+}
+.value.taskFinished{
+    color: rgba(37, 1, 255, 1);
+}
+/* .setting.taskEditing{
+    visibility: hidden;
+} */
+.nums{
+    margin-right: 5px;
+}
+.pageNumber{
+    margin: 0 5px;
+} /*Thảo 10/3*/
