@@ -1,5 +1,9 @@
 /* Hồng Phượng */
-
-/* Trần Thảo 25/10 */
-
-/* Trần Thảo 10/3 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600&family=Roboto:wght@700&display=swap" rel="stylesheet');
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family:'Roboto Slab', serif;
+  background-color: #FFFFFF;
+}
