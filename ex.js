@@ -31,7 +31,7 @@ document.getElementById('addbut').addEventListener('click', function plusTasks()
     var addTask = document.getElementsByClassName('addtask')[0];
     if (addTask.contains(addButton) && taskInput.value) {
         let valueInput = document.getElementsByClassName('nhap')[0].value;
-        valueInput.length > 50 ? (valueInput = valueInput.slice(0, 50) + "...") : valueInput;
+        valueInput.length > 40 ? (valueInput = valueInput.slice(0, 40) + "...") : valueInput;
         taskInput.value = '';
         // console.log(valueInput)-->trả về array có kiểu dữ liệu HTML collection 
         let listElem = '<div id="taskcontainer">'
@@ -91,9 +91,12 @@ tasklist.addEventListener('click', (e) => {
         wrapper.onclick = (e) => {
             if(e.target.classList.contains('okIcon') && taskInput.value){
                 value.innerText = taskInput.value;
-                taskInput.value = '';
                 okeIcon.replaceWith(addButton);
                 editText.replaceWith(icons);
+                let taskEdit = icons.parentElement.parentElement;
+                let taskEditIndex = Array.prototype.indexOf.call(taskEdit.parentElement.children, taskEdit) + (currentPage - 1) * ITEM_LIMIT_PAGE;
+                taskArray[taskEditIndex] = '<div id="taskcontainer">' + taskEdit.innerHTML + '</div>';
+                taskInput.value = '';
             }
         };
     };
