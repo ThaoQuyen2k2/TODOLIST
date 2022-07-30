@@ -6,12 +6,12 @@ let indexEditingTask = null;
 const taskInput=document.querySelector('.addtask input');
 taskInput.focus();
 var tasklist = document.getElementById('tasklist');
-taskInput.addEventListener('keyup', e=>{
+taskInput.addEventListener('keyup', e=>{  //keyup ==> enter
     var addTask = document.getElementsByClassName('addtask')[0];
-    if (e.key=='Enter' && addTask.contains(addButton) && taskInput.value) {
+    if (e.key=='Enter' && addTask.contains(addButton) && taskInput.value) { 
         let valueInput = document.getElementsByClassName('nhap')[0].value;
         valueInput.length > 50 ? (valueInput = valueInput.slice(0, 50) + "...") : valueInput;
-        taskInput.value = '';
+        taskInput.value = ''; //làm mới thanh nhập
         // console.log(valueInput)-->trả về array có kiểu dữ liệu HTML collection 
         let listElem = '<div id="taskcontainer">'
         +  `<div class="task"> `
@@ -51,7 +51,7 @@ document.getElementById('addbut').addEventListener('click', function plusTasks()
 //done task
 tasklist.addEventListener('click', (e) => {
     if(e.target.classList.contains('tick')){
-        e.target.classList.toggle('taskFinished');
+        e.target.classList.toggle('taskFinished'); //toggle: thêm nếu chưa có và xóa nếu đã có
         e.target.parentElement.previousElementSibling.classList.toggle('taskFinished');
     }
     if(e.target.classList.contains('value') && e.target.classList.contains('taskFinished')){
@@ -63,7 +63,8 @@ tasklist.addEventListener('click', (e) => {
 tasklist.addEventListener('click', (e) => {
     if(e.target.classList.contains('delete')){
         let taskDel = e.target.parentElement.parentElement.parentElement;
-        let taskDelIndex = Array.prototype.indexOf.call(taskDel.parentElement.children, taskDel) + (currentPage - 1)*ITEM_LIMIT_PAGE;
+        let taskDelIndex = Array.prototype.indexOf.call(taskDel.parentElement.children, taskDel) 
+        +(currentPage - 1)*ITEM_LIMIT_PAGE;
         taskArray.splice(taskDelIndex, 1);
         e.target.parentElement.parentElement.parentElement.remove();
         decreasePageIndex();
@@ -90,7 +91,9 @@ tasklist.addEventListener('click', (e) => {
         inputField.focus();
         wrapper.onclick = (e) => {
             if(e.target.classList.contains('okIcon') && taskInput.value){
-                value.innerText = taskInput.value;
+                let valueInput = document.getElementsByClassName('nhap')[0].value;
+                valueInput.length > 50 ? (valueInput = valueInput.slice(0, 50) + "...") : valueInput;
+                value.innerText = valueInput;
                 okeIcon.replaceWith(addButton);
                 editText.replaceWith(icons);
                 let taskEdit = icons.parentElement.parentElement;
@@ -114,8 +117,8 @@ function increasePageIndex(){
     pageNav.children[1].appendChild(newPage);
 }
 function decreasePageIndex(){
-    var lastPage = pageNav.children[1].lastElementChild;
-    const indexPageLength = Math.floor((taskArray.length-1)/ITEM_LIMIT_PAGE) + 1;
+    var lastPage = pageNav.children[1].lastElementChild; // số trang hiển thị
+    const indexPageLength = Math.floor((taskArray.length-1)/ITEM_LIMIT_PAGE) + 1; // số trang thực sự còn lại
     if(indexPageLength != lastPage.innerText && taskArray.length != 0)
     {
         if(currentPage == lastPage.innerText) currentPage--;
@@ -131,9 +134,9 @@ function generateNavPage(){
 }
 
 function displayPages(pageIndex){
-    const startIndex = (pageIndex - 1) * ITEM_LIMIT_PAGE;
-    const endIndex = pageIndex * ITEM_LIMIT_PAGE;
-    document.getElementById('tasklist').innerHTML=""
+    const startIndex = (pageIndex - 1) * ITEM_LIMIT_PAGE; //0
+    const endIndex = pageIndex * ITEM_LIMIT_PAGE; //8
+    document.getElementById('tasklist').innerHTML="";
     for(let i=startIndex;i<endIndex;i++){
         if(taskArray[i])
             document.getElementById('tasklist').innerHTML+=taskArray[i]
