@@ -31,7 +31,7 @@ document.getElementById('addbut').addEventListener('click', function plusTasks()
     var addTask = document.getElementsByClassName('addtask')[0];
     if (addTask.contains(addButton) && taskInput.value) {
         let valueInput = document.getElementsByClassName('nhap')[0].value;
-        valueInput.length > 40 ? (valueInput = valueInput.slice(0, 40) + "...") : valueInput;
+        valueInput.length > 50 ? (valueInput = valueInput.slice(0, 50) + "...") : valueInput;
         taskInput.value = '';
         // console.log(valueInput)-->trả về array có kiểu dữ liệu HTML collection 
         let listElem = '<div id="taskcontainer">'
